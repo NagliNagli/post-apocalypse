@@ -74,7 +74,7 @@ class BurpExtender(IBurpExtender, IHttpListener):
             # if there is no <head> inject one.
             if "<head>" in resBody:
                 modifiedResBody = resBody.replace("<head>", "<head>{}\n".format(injectedScript), 1)
-            elif:
+            elif "<html>" not in resBody:
                 modifiedResBody = resBody.replace("<html>", "<html><head>{}\n</head>".format(injectedScript), 1)
             else:
                 modifiedResBody = resBody.replace("","<head>{}\n</head>".format(injectedScript),1)
